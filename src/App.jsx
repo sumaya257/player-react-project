@@ -1,14 +1,17 @@
 
 import './App.css'
+import Banner from './assets/components/Banner'
+import Navbar from './assets/components/Navbar'
 
 function App() {
   
 
   return (
-    <>
-      <h1>Vite + React</h1>
+    <div className='container mx-auto px-4'>
+      <Navbar></Navbar>
+      <Banner></Banner>
       
-    </>
+    </div>
   )
 }
 
