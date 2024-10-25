@@ -7,26 +7,24 @@ import BtnContainer from './assets/components/BtnContainer/BtnContainer';
 
 function App() {
   const [amount, setAmount] = useState(0);
-  
   const [isActive, setIsActive] = useState({
     Available: true,
-    status: 'active'
+    status: 'active',
   });
 
   const handleFreeCredit = () => {
-    setAmount(amount + 600000);
-    console.log('got', amount + 600000);
+    setAmount((prevAmount) => prevAmount + 6000000);
   };
 
   const handleIsActiveState = (status) => {
     setIsActive({
       Available: status === 'Available',
-      status: status === 'Available' ? 'active' : 'inactive'
+      status: status === 'Available' ? 'active' : 'inactive',
     });
   };
-console.log(isActive)
+
   return (
-    <div className='container mx-auto px-4'>
+    <div className="container mx-auto px-4">
       <Navbar amount={amount} />
       <Banner handleFreeCredit={handleFreeCredit} />
       <BtnContainer isActive={isActive} handleIsActiveState={handleIsActiveState} />

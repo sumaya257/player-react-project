@@ -1,0 +1,63 @@
+[
+    {
+      "playerId": 1,
+      "name": "Virat Kohli",
+      "country": "India",
+      "image": "https://i.ibb.co/Gs5Tw4h/virat.jpg",
+      "role": "Batsman",
+      "battingType": "Right-hand bat",
+      "bowlingType": "Right-arm medium",
+      "biddingPrice": "2,000,000"
+    },
+    {
+      "playerId": 2,
+      "name": "Steve Smith",
+      "country": "Australia",
+      "image": "https://i.ibb.co/qFD0xcL/steve.jpg",
+      "role": "Batsman",
+      "battingType": "Right-hand bat",
+      "bowlingType": "Right-arm leg spin",
+      "biddingPrice": "1,800,000"
+    },
+    {
+      "playerId": 3,
+      "name": "Kane Williamson",
+      "country": "New Zealand",
+      "image": "https://i.ibb.co/pdScSYb/kane.webp",
+      "role": "Batsman",
+      "battingType": "Right-hand bat",
+      "bowlingType": "Right-arm off-break",
+      "biddingPrice": "1,500,000"
+    },
+    {
+      "playerId": 4,
+      "name": "Jasprit Bumrah",
+      "country": "India",
+      "image": "https://i.ibb.co/31qTJgJ/jaseph.jpg",
+      "role": "Bowler",
+      "battingType": "Right-hand bat",
+      "bowlingType": "Right-arm fast",
+      "biddingPrice": "1,700,000"
+    },
+    {
+      "playerId": 5,
+      "name": "Ben Stokes",
+      "country": "England",
+      "image": "https://i.ibb.co/gP6J88L/ben.webp",
+      "role": "All-rounder",
+      "battingType": "Left-hand bat",
+      "bowlingType": "Right-arm medium",
+      "biddingPrice": "2,200,000"
+    },
+    {
+      "playerId": 6,
+      "name": "Babar Azam",
+      "country": "Pakistan",
+      "image": "https://i.ibb.co/VjNhDK3/barbar.jpg",
+      "role": "Batsman",
+      "battingType": "Right-hand bat",
+      "bowlingType": "Right-arm off-break",
+      "biddingPrice": "1,900,000"
+    }
+  ]
+  

@@ -9,10 +9,10 @@ const Banner = ({handleFreeCredit}) => {
         <div className="relative h-[400px] mb-10">
             {/* Blurred background image */}
             <div 
-                className="absolute inset-0 bg-cover bg-center filter blur-sm"
+                className="absolute inset-0 bg-cover bg-center  bg-black opacity-100"
                 style={{ backgroundImage: `url(${bg})` }}
             ></div>
-            <div className="absolute inset-0 bg-black opacity-40"></div>
+           
 
             {/* Main content (image and text) */}
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10">
