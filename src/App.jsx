@@ -3,6 +3,7 @@ import './App.css';
 import Banner from './assets/components/Banner';
 import Navbar from './assets/components/Navbar';
 import BtnContainer from './assets/components/BtnContainer/BtnContainer';
+import Footer from './assets/components/Footer';
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -50,7 +51,13 @@ function App() {
 
     // Deduct the bidding price from the total amount
     setAmount((prevAmount) => prevAmount - biddingPrice);
-    setSelectedPlayers((prevSelected) => [...prevSelected, player]);
+
+    // Add player to selectedPlayers
+    setSelectedPlayers((prevSelected) => {
+      const updatedPlayers = [...prevSelected, player];
+      alert(`Player ${player.name} has been successfully added!`);
+      return updatedPlayers;
+    });
   };
 
   const handleShowAvailablePlayers = () => {
@@ -85,6 +92,7 @@ function App() {
         handleRemovePlayer={handleRemovePlayer}
         handleShowAvailablePlayers={handleShowAvailablePlayers}
       />
+      <Footer></Footer>
     </div>
   );
 }

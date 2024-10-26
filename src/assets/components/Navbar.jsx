@@ -6,7 +6,7 @@ import coin from '../images/coin.png';
 
 const Navbar = ({amount }) => {
   return (
-    <div className='mt-4 mb-10'>
+    <div className='sticky top-0 bg-white bg-opacity-80 backdrop-blur-md shadow-md z-10 mt-4 mb-10'>
       <div className='flex justify-between'>
         <img src={img} alt="" />
         <div className='flex items-center'>
