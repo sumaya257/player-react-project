@@ -3,7 +3,6 @@ import './App.css';
 import Banner from './assets/components/Banner';
 import Navbar from './assets/components/Navbar';
 import BtnContainer from './assets/components/BtnContainer/BtnContainer';
-import Players from './assets/components/Players/Players';
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -24,48 +23,68 @@ function App() {
     });
   };
 
-    // **Modified Function to handle player selection**
-    const handleSelectedPlayers = (player) => {
-      if (selectedPlayers.length >= 6) {
-        alert("You can only select up to 6 players.");
-        return; // Stop if already 6 players selected
-      }
-      
-      if (selectedPlayers.find((p) => p.playerId === player.playerId)) {
-        alert("Player already selected.");
-        return; // Stop if the player is already selected
-      }
-  
-      setSelectedPlayers((prevSelected) => [...prevSelected, player]);
-      console.log("Selected players:", selectedPlayers);
-    };
-  
+  const handleSelectedPlayers = (player) => {
+    if (selectedPlayers.length >= 6) {
+      alert("You can only select up to 6 players.");
+      return;
+    }
 
-   // **New Function to show Available Players**
-   const handleShowAvailablePlayers = () => {
+    if (selectedPlayers.find((p) => p.playerId === player.playerId)) {
+      alert("Player already selected.");
+      return;
+    }
+
+    // Convert biddingPrice to a number
+    const biddingPrice = parseFloat(player.biddingPrice.replace(/,/g, ''));
+    console.log('biddingPrice:', biddingPrice);
+    
+    if (isNaN(biddingPrice)) {
+      alert("Invalid bidding price.");
+      return;
+    }
+
+    if (amount < biddingPrice) {
+      alert("You don't have enough coins.");
+      return;
+    }
+
+    // Deduct the bidding price from the total amount
+    setAmount((prevAmount) => prevAmount - biddingPrice);
+    setSelectedPlayers((prevSelected) => [...prevSelected, player]);
+  };
+
+  const handleShowAvailablePlayers = () => {
     handleIsActiveState('Available');
   };
 
   const handleRemovePlayer = (playerId) => {
-    setSelectedPlayers((prevSelected) => 
-      prevSelected.filter((player) => player.playerId !== playerId)
-    );
+    // Find the player being removed
+    const playerToRemove = selectedPlayers.find((player) => player.playerId === playerId);
+    
+    if (playerToRemove) {
+      // Convert biddingPrice to a number and add it back to the total amount
+      const biddingPrice = parseFloat(playerToRemove.biddingPrice.replace(/,/g, ''));
+      setAmount((prevAmount) => prevAmount + biddingPrice);
+      
+      // Remove the player from the selectedPlayers array
+      setSelectedPlayers((prevSelected) =>
+        prevSelected.filter((player) => player.playerId !== playerId)
+      );
+    }
   };
-  
 
   return (
     <div className="container mx-auto px-4">
       <Navbar amount={amount} />
       <Banner handleFreeCredit={handleFreeCredit} />
-      <BtnContainer 
-     isActive={isActive} 
-     handleIsActiveState={handleIsActiveState} 
-     selectedPlayers={selectedPlayers} 
-     handleSelectedPlayers={handleSelectedPlayers} 
-     handleRemovePlayer={handleRemovePlayer} // Pass the function here
-     handleShowAvailablePlayers={handleShowAvailablePlayers}
-    />
-
+      <BtnContainer
+        isActive={isActive}
+        handleIsActiveState={handleIsActiveState}
+        selectedPlayers={selectedPlayers}
+        handleSelectedPlayers={handleSelectedPlayers}
+        handleRemovePlayer={handleRemovePlayer}
+        handleShowAvailablePlayers={handleShowAvailablePlayers}
+      />
     </div>
   );
 }
