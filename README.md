@@ -28,5 +28,5 @@ The Player Selection Project allows users to browse through a list of players, v
 Feel free to explore the project and contribute to its development! If you have any questions, please don’t hesitate to reach out.
 
 ## 🚀 Getting Started
-
+You can view the live version of the project [here](https://player-react-assingnment.netlify.app)
 
