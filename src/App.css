@@ -1,0 +1,17 @@
+/* Custom styles for toast notifications */
+.Toastify__toast--info {
+    background-color: #3498db; /* Blue for info */
+  }
+  
+  .Toastify__toast--success {
+    background-color: #28a745; /* Green for success */
+  }
+  
+  .Toastify__toast--warning {
+    background-color: #ffc107; /* Yellow for warning */
+  }
+  
+  .Toastify__toast--error {
+    background-color: #dc3545; /* Red for error */
+  }
+  

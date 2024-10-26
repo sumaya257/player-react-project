@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for React-Toastify
 import './App.css';
 import Banner from './assets/components/Banner';
 import Navbar from './assets/components/Navbar';
@@ -26,12 +28,12 @@ function App() {
 
   const handleSelectedPlayers = (player) => {
     if (selectedPlayers.length >= 6) {
-      alert("You can only select up to 6 players.");
+      toast.error("You can only select up to 6 players."); // Use toast.error instead of alert
       return;
     }
 
     if (selectedPlayers.find((p) => p.playerId === player.playerId)) {
-      alert("Player already selected.");
+      toast.warning("Player already selected."); // Use toast.warning instead of alert
       return;
     }
 
@@ -40,12 +42,12 @@ function App() {
     console.log('biddingPrice:', biddingPrice);
     
     if (isNaN(biddingPrice)) {
-      alert("Invalid bidding price.");
+      toast.error("Invalid bidding price."); // Use toast.error instead of alert
       return;
     }
 
     if (amount < biddingPrice) {
-      alert("You don't have enough coins.");
+      toast.error("You don't have enough coins."); // Use toast.error instead of alert
       return;
     }
 
@@ -55,7 +57,7 @@ function App() {
     // Add player to selectedPlayers
     setSelectedPlayers((prevSelected) => {
       const updatedPlayers = [...prevSelected, player];
-      alert(`Player ${player.name} has been successfully added!`);
+      toast.success(`Player ${player.name} has been successfully added!`); // Use toast.success instead of alert
       return updatedPlayers;
     });
   };
@@ -77,11 +79,21 @@ function App() {
       setSelectedPlayers((prevSelected) =>
         prevSelected.filter((player) => player.playerId !== playerId)
       );
+      toast.info(`Player ${playerToRemove.name} has been removed.`); // Notification for removed player
     }
   };
 
   return (
     <div className="container mx-auto px-4">
+      <ToastContainer 
+        position="top-center" // Position the toast at the top-center
+        autoClose={3000} // Automatically close the toast after 3 seconds
+        hideProgressBar={false} // Show progress bar
+        closeOnClick // Allow closing the toast on click
+        pauseOnHover // Pause on hover
+        draggable // Allow dragging
+        theme="colored" // Use colored theme for better visibility
+      />
       <Navbar amount={amount} />
       <Banner handleFreeCredit={handleFreeCredit} />
       <BtnContainer
@@ -92,7 +104,7 @@ function App() {
         handleRemovePlayer={handleRemovePlayer}
         handleShowAvailablePlayers={handleShowAvailablePlayers}
       />
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
